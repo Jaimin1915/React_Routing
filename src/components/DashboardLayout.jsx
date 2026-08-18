@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 
 function DashboardLayout() {
   const applyActiveStyling = ({ isActive }) => ({
-    backgroundColor: isActive ? "blue" : "green",
+    backgroundColor: isActive ? "blue" : "white",
     padding: isActive ? "2px" : "0px",
     borderRadius: isActive ? "5px" : "0px",
+    color: isActive ? 'white': 'black'
   });
 
   return (
@@ -20,29 +21,20 @@ function DashboardLayout() {
         <NavLink
           to="/dashboard"
           end
-          style={({ isActive }) => ({
-            backgroundColor: isActive ? "blue" : "",
-            color: isActive ? 'white' : 'black'
-          })}
+          style={applyActiveStyling}
         >
           <span className="text-2xl"> Dashboard </span>
         </NavLink>
         <NavLink
           to="/dashboard/billing"
-          style={({ isActive }) => ({
-            backgroundColor: isActive ? "blue" : "",
-            color: isActive ? 'white' : 'black'
-          })}
+          style={applyActiveStyling}
         >
           
           <span className="text-2xl"> BillingSection </span>
         </NavLink>
         <NavLink
           to="/dashboard/settings"
-          style={({ isActive }) => ({
-            backgroundColor: isActive ? "blue" : "",
-            color: isActive ? 'white' : 'black'
-          })}
+          style={applyActiveStyling}
         >
           <span className="text-2xl"> SettingSection </span>
         </NavLink>
