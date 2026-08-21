@@ -5,11 +5,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import AuthProvider from './auth/AuthProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <StrictMode>
-      <App />
-    </StrictMode>,
+    <AuthProvider>
+      <StrictMode>
+        <App />
+      </StrictMode>,
+    </AuthProvider>
   </BrowserRouter>
 )

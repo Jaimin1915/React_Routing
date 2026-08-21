@@ -9,6 +9,8 @@ import Billing from "./components/Billing";
 import Overview from "./components/Dashboard";
 import DashboardLayout from "./components/DashboardLayout";
 import Setting from "./components/Setting";
+import RequiredAuth from "./auth/RequiredAuth";
+import Login from "./components/Login";
 
 function App() {
   const [productNo, setProductNo] = useState(0);
@@ -29,9 +31,20 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductInfo />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/*" element={<NotFound />} />
 
-          <Route path="/dashboard" element={<DashboardLayout />}>
+          {/* <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<Overview />} />
+            <Route path="settings" element={<Setting />} />
+            <Route path="billing" element={<Billing />} />
+          </Route> */}
+
+          <Route path="/dashboard" element={
+            <RequiredAuth>
+              <DashboardLayout />
+            </RequiredAuth>
+          }>
             <Route index element={<Overview />} />
             <Route path="settings" element={<Setting />} />
             <Route path="billing" element={<Billing />} />

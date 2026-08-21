@@ -12,7 +12,6 @@ function Billing() {
     return(
         <>
             <h1> Billing </h1>
-
             <button className="bg-amber-200" onClick={() => cancelSub()}> Cancel Subscription </button>
         </>
     )
